@@ -23,6 +23,7 @@
 \usepackage{multirow}
 \usepackage{microtype}
 \usepackage{tabularx}
+\usepackage{pgfplots}
 
 \usepackage{csquotes}
 \DeclareQuoteAlias{croatian}{polish}
@@ -57,33 +58,20 @@
 
 \section{Cel}
 
-Celem projektu była redukcja drgań płyty kwadratowej, jednostronnie
-utwierdzonej, pobudzonej do drgań w częstotliwościach własnych.
-
-\section{Przebieg}
-
-\begin{figure}[!tbh]
-  \centering
-  \import{./vecgraphics/}{PMRD_plate.pdf_tex}
-  \caption{Schemat układu pomiarowego}
-  \label{fig:schemat}
-\end{figure}
-
-\begin{figure}[!tbh]
-  \centering
-  \includegraphics[width=\textwidth]{./bitgraphics/plate1.jpg}
-  \caption{Widok na wzbudnik oraz czujniki zainstalowane na płycie}
-  \label{fig:plate1}
-\end{figure}
-
-\begin{figure}[!tbh]
-  \centering
-  \includegraphics[width=\textwidth]{./bitgraphics/plate2.jpg}
-  \caption{Widok na aktuatory zainstalowane na płycie}
-  \label{fig:plate2}
-\end{figure}
+Celem projektu było zaprojektowanie, zamodelowanie i zbudowanie podzespołu
+układu do redukcji drgań płyty kwadratowej, jednostronnie utwierdzonej,
+pobudzonej do drgań w częstotliwościach własnych, a następnie przeprowadzenie
+redukcji dla 5 częstotliwości własnych drgań wywołanych wzbudnikiem, z
+wykorzystaniem 1 lub 2 aktuatorów względem 1 lub 2 czujników (9 konfiguracji
+dla każdej częstotliwości).
 
 \section{Identyfikacja częstotliwości własnych}
+
+W programie Salome Meca zamodelowano płytę kwadratową o wymiarach 250x250 mm.
+Zbadano jej mody oraz wybrano 5, względem których w dalszej części
+przeprowadzono redukcję drgań. Są to częstotliwości: 278, 313, 549, 727 i
+\SI{947}{\hertz}. Postacie tych modów przedstawiono na rys. \ref{fig:mod1},
+\ref{fig:mod2}, \ref{fig:mod3}, \ref{fig:mod4} i \ref{fig:mod5}.
 
 \begin{figure}[!tbh]
   \centering
@@ -120,20 +108,86 @@ utwierdzonej, pobudzonej do drgań w częstotliwościach własnych.
   \label{fig:mod5}
 \end{figure}
 
+\section{Budowa układu redukcji drgań płyty}
+
+Na początku zaprojektowano podzespół układu do redukcji drgań płyty. Schemat
+całego układu przedstawiono na rys. \ref{fig:schemat}
+
+\begin{figure}[!tbh]
+  \centering
+  \import{./vecgraphics/}{PMRD_plate.pdf_tex}
+  \caption{Schemat układu pomiarowego}
+  \label{fig:schemat}
+\end{figure}
+
+Zbudowano część zawierającą płytę, elementy piezoelektryczne i przewody
+ostatecznie zakończone złączami BNC, które podłączono do wzmacniacza i karty
+pomiarowej.  Płyta jest aluminiowa, o wymiarach \SI{250 x 270}{\milli\meter}
+(\SI{20}{\milli\meter}
+przeznaczone na przymocowanie do imadła). Elementy piezoelektryczne
+przymocowano do płyty wykorzystując klej dwuskładnikowy do metalu. Między
+płytą, a elementami piezoelektrycznymi umieszczono miedziane płytki, na styk, o
+grubości \SI{0.1}{\milli\meter} odpowiadające za przewodzenie sygnału elektrycznego między
+wewnętrzną stroną piezoelektryka, a przewodem, do tej płytki przylutowanym.
+Drugi przewód przylutowano do zewnętrznej strony piezoelektryka. Rozmieszczenie
+elementów piezoelektrycznych (wzbudnika W, czujników $S$ i aktuatorów $A$) oraz
+sposób ich przymocowania przedstawiono na rys. \ref{fig:plate1} i
+\ref{fig:plate2}.
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=\textwidth]{./bitgraphics/plate1.jpg}
+  \caption{Widok na wzbudnik oraz czujniki zainstalowane na płycie}
+  \label{fig:plate1}
+\end{figure}
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=\textwidth]{./bitgraphics/plate2.jpg}
+  \caption{Widok na aktuatory zainstalomi BNC, które podłączono do wzmacniacza i
+karty pomiarowej. Płyta jest aluminiwane na płycie}
+  \label{fig:plate2}
+\end{figure}
+
+Drugie końce przewodów przymocowano do kostki elektrycznej, na której wyjściu
+przyłączono przewody zakończone złączami BNC.
+
+\section{Przeprowadzenie redukcji drgań płyty}
+
+Podzespół połączono z pozostałymi elementami układu i w pierwszej kolejności
+zbadano mody płyty (z elementami piezoelektrycznymi). Wykorzystano w tym celu
+program napisany w środowisku programistycznym LabVIEW. Zaobserwowano wzrost
+amplitudy między innymi dla częstotliwości 250, 300, 570, 710 oraz
+\SI{920}{\hertz} odpowiadające wybranym przez nas częstotliwościom, których
+mody przedstawiono na rys. \ref{fig:mod1}--\ref{fig:mod5}. Pełny rozkład
+amplitud dla czujnika $S1$ oraz czujnika $S2$ w zależności od wzbudzonej
+częstotliwości z zakresu od 10 do \SI{2000}{\hertz}, dla stałej amplitudy
+pobudzenia przedstawiono na rys, \ref{fig:mody}.
+
+\begin{figure}[!tbh]
+  \input{plots/mody.pgf}
+  \caption{Rozkład amplitud dla czujników}
+  \label{fig:mody}
+\end{figure}
+
+Widać wyraźnie niższe amplitudy dla czujnika 2. Pomimo tego zdecydowano się na
+kontynuację redukcji drgań płyty.
+
+W kolejnym kroku z wykorzystaniem programu napisanego w środowisku
+programistycznym LabVIEW\texttrademark dla każdej z powyżej wymienionej częstotliwości przy
+stałym pobudzeniu \SI{20}{\volt} dążono do odnalezienia minimalnej amplitudy dla
+czujnika $S1$, czujnika $S2$ lub sumy z tych czujników zmieniając amplitudę oraz fazę
+aktuatora $A1$, aktuatora $A2$ lub obydwu aktuatorów (każdy względem każdego, 9
+konfiguracji dla każdej częstotliwości).
+
 \section{Wyniki}
 
-\begin{table}[!tbh]
-  \centering
-  \caption{Częstotliwości wybranych modów drgań płyty}
-  \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    Numer modu & () & () & () & () & () \\
-    \hline
-    $f_{wlas} [\si{\hertz}]$ & 250 & 300 & 570 & 710 & 920\\
-    \hline
-  \end{tabular}
-  \label{tab:czest}
-\end{table}
+Wyniki redukcji drgań dla kolejnych częstotliwości przedstawiono w tab.
+\ref{tab:red1}--\ref{tab:red5}. Wartości amplitud zadanych na aktuatoróy są to
+wartości wprowadzane do programu, przed wzmocnieniem, rzeczywiste wartości
+napięcia podane na aktuatory były cziesięciokrotnie większe. Na czerwono w
+tablicach zaznaczono sytuacje w którcych nie udało się uzyskań napięcia
+potrzebnego do redukcji z powodu niewystarczającej mocy wzmacniacza.
 
 \begin{table}[!tbh]
   \centering
@@ -302,5 +356,46 @@ utwierdzonej, pobudzonej do drgań w częstotliwościach własnych.
 
 \section{Wnioski}
 
+Przeprowadzono redukcję drgań płyty dla pięciu częstotliwości. Nie dla każdej
+częstotliwości możliwe było całkowite wytłumienie drgań względem wybranych
+czujników. 
+
+Dla częstotliwości \SI{250}{\hertz} skutecznie całkowicie wytłumiono drgania
+względem czujnika $S2$ z wykorzystaniem dwóch aktuatorów. Dobry efekt też dała
+modulacja jedynie aktuatorem $A1$. Względem pojedynczego czujnika
+maksymalnie udało się stłumić amplitudę drgań o ok \SI{45}{\decibelV}, względem
+sumy czujników o ok \SI{33}{\decibelV}.
+
+Dla częstotliwości \SI{300}{\hertz} nie udało się uzyskać całkowitego
+wytłumienia. Za niska była maksymalna wartość amplitudy, jaką można było zadać
+z aktuatorów.  Dla czujnika $S1$ maksymalnie udało się stłumić o ok.
+\SI{10}{\decibelV}, dla $S2$ o ok. \SI{20}{\decibelV}, a dla sumy
+\SI{5}{\decibelV}.
+
+Dla częstotliwości \SI{570}{\hertz} podobnie jak dla \SI{250}{\hertz}
+skutecznie całkowicie wytłumiono drgania względem czujnika $S2$ z wykorzystaniem
+dwóch aktuatorów. Dla czujnika $S1$ maksymalnie udało się stłumić o ok.
+\SI{55}{\decibelV}, dla $S2$ o ok. \SI{50}{\decibelV}, a dla sumy
+\SI{28}{\decibelV}.
+
+Dla częstotliwości \SI{710}{\hertz} w większości przypadków za niska była
+maksymalna wartość amplitudy, jaką można było zadać z aktuatora $A2$.
+Podobnie jak dla 250 oraz \SI{570}{\hertz} skutecznie całkowicie wytłumiono
+drgania względem czujnika $S2$ z wykorzystaniem dwóch aktuatorów, a nawet samego
+aktuatora $A1$. Dla czujnika $S1$ maksymalnie udało się stłumić
+amplitudę drgań o ok. \SI{55}{\decibelV}, dla $S2$ o ok.
+\SI{50}{\decibelV}, a dla sumy \SI{43}{\decibelV}.
+
+Dla częstotliwości \SI{920}{\hertz} w jednym przypadku  za niska była
+maksymalna wartość amplitudy, jaką można było zadać z aktuatora $A2$. Dla
+czujnika $S1$ maksymalnie udało się stłumić amplitudę drgań o ok.
+\SI{55}{\decibelV}, dla $S2$ o ok.  \SI{53}{\decibelV}, a dla sumy
+\SI{25}{\decibelV}.
+
+Niższa amplituda drgań dla czujnika $S2$ mogła wynikać z nieodpowiedniego
+przyklejenia czujnika do płyty (za mało kleju, nieodpowiednio rozprowadzony, za
+mała powierzchnia styku z płytą) lub z uszkodzenia elementu piezoelektrycznego
+(nie został on sprawdzony przed zamontowaniem). Nieznane są inne możliwe
+przyczyny, jednak nie wykluczone jest ich występowanie.
 
 \end{document}
