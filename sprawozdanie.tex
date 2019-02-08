@@ -179,12 +179,58 @@ pobudzenia przedstawiono na rys, \ref{fig:mody}.
 Widać wyraźnie niższe amplitudy dla czujnika \textit{S2}. Pomimo tego zdecydowano się na
 kontynuację redukcji drgań płyty.
 
+Program wykorzystany do badania modów płyty przedstawiono na wykresach
+\ref{fig:eigen_front} i \ref{fig:eigen_block}.
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=\textwidth]{bitgraphics/panel_front_mod.png}
+  \caption{Front panel programu do szukania częstotliwości własnych}
+  \label{fig:eigen_front}
+\end{figure}
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=\textwidth]{bitgraphics/panel_back_mod.png}
+  \caption{Block diagram programu do szukania częstotliwości własnych}
+  \label{fig:eigen_block}
+\end{figure}
+
+Program jest dwuwątkowy. W pierwszym wątku zadawane są co
+\SI{100}{\milli\second} częstotliwości co \SI{10}{\hertz} od \SI{10}{\hertz} do
+zadanej częstotliwości maksymalnej.  W drugim wątku zbierane są dane z
+sensorów. Po zakończeniu pracy wątków dane są wyświetlane na wykresie XY Graph,
+gdzie dziedziną są zadawane częstotliwości.  Dane z wykresu można eksportować
+do pliku (m. in. o rozszerzeniu .txt).
+
 W kolejnym kroku z wykorzystaniem programu napisanego w środowisku
-programistycznym LabVIEW\texttrademark dla każdej z powyżej wymienionej częstotliwości przy
-stałym pobudzeniu \SI{20}{\volt} dążono do odnalezienia minimalnej amplitudy dla
-czujnika $S1$, czujnika $S2$ lub sumy z tych czujników zmieniając amplitudę oraz fazę
+programistycznym LabVIEW\texttrademark (rys. \ref{fig:red_front} i
+\ref{fig:red_block}) dla każdej z powyżej wymienionej częstotliwości przy
+stałym pobudzeniu \SI{20}{\volt} dążono do odnalezienia minimalnej amplitudy
+dla czujnika $S1$, czujnika $S2$ lub sumy z tych czujników zmieniając amplitudę
+oraz fazę
 aktuatora $A1$, aktuatora $A2$ lub obydwu aktuatorów (każdy względem każdego, 9
 konfiguracji dla każdej częstotliwości).
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=\textwidth]{bitgraphics/panel_front_red.png}
+  \caption{Front panel programu do szukania częstotliwości własnych}
+  \label{fig:red_front}
+\end{figure}
+
+\begin{figure}[!tbh]
+  \centering
+  \includegraphics[width=0.9\textwidth]{bitgraphics/panel_back_red.png}
+  \caption{Block diagram programu do szukania częstotliwości własnych}
+  \label{fig:red_block}
+\end{figure}
+
+Program jest dwuwątkowy. W pierwszym wątku zadawane są sygnały sinusoidalne o
+zadanych parametrach na piezoelektryki pełniące funkcje wymuszenia i
+aktuatorów. W drugim wątku zbierane są dane z sensorów oraz przeliczane na
+poziomy \si{\decibelV} dla zadanej częstotliwości. Widmo oraz przebieg sygnału
+z sensorów są wyświetlane na wykresach.
 
 \section{Wyniki}
 
