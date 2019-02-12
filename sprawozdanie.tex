@@ -65,13 +65,41 @@ redukcji dla 5 częstotliwości własnych drgań wywołanych wzbudnikiem, z
 wykorzystaniem 1 lub 2 aktuatorów względem 1 lub 2 czujników (9 konfiguracji
 dla każdej częstotliwości).
 
-\section{Identyfikacja częstotliwości własnych}
+\section{Identyfikacja częstotliwości własnych} \label{ident}
 
-W programie Salome Meca zamodelowano płytę kwadratową o wymiarach \SI{250 x 250}{\milli\meter}.
-Zbadano jej mody oraz wybrano pięć, względem których w dalszej części
-przeprowadzono redukcję drgań. Są to częstotliwości: 278, 313, 549, 727 i
-\SI{947}{\hertz}. Postacie tych modów przedstawiono na rys. \ref{fig:mod1},
-\ref{fig:mod2}, \ref{fig:mod3}, \ref{fig:mod4} i \ref{fig:mod5}.
+W programie Salome-Meca zamodelowano płytę kwadratową, jednostronnie
+utwierdzoną, o wymiarach \SI{220 x 220}{\milli\meter}. Przeprowadzono analizę
+modalną i uzyskano postacie drgań własnych  oraz odpowiadające im
+częstotliwości w zakresie do \SI{1.5}{\kilo\hertz}.
+
+Przed przystąpieniem do redukcji drgań zmierzono częstotliwości drgań własnych
+zmontowanego układu. Posłużono się oprogramowaniem napisanym w środowisku
+LabVIEW\texttrademark, które podawało sygnał wymuszenia pod postacią sinusa
+przestrajanego na wzbudnik i rejestrowało sygnały pochodzące z czujników. Na
+wykresie \ref{fig:mody} przedstawiono uzyskany rozkład amplitud.
+
+Z uzyskanych danych pomiarowych oraz z danych pochodzących z symulacji MES
+dopasowano oraz wybrano częstotliwości dla których później przeprowadzano
+redukcję. Tabela  przedstawia wybrane częstotliwości, z kolei na rysunkach
+\ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3}, \ref{fig:mod4} oraz
+\ref{fig:mod5} przedstawiono postacie wybranych modów.
+
+\begin{table}[!tbh]
+  \centering
+  \caption{Porównanie częstotliwości drgań własnych}
+  \begin{tabular}{|c|c|c|c|c|c|} \hline
+    L.p. & 1 & 2 & 3 & 4 & 5 \\ \hline
+    Symulacja MES $[\si{\hertz}]$ & 278 & 313 & 549 & 727 & 947 \\ \hline
+    Pomiary płyty $[\si{\hertz}]$ & 250 & 300 & 570 & 710 & 920 \\ \hline
+  \end{tabular}
+  \label{tab:identyfikacja}
+\end{table}
+
+\begin{figure}[!tbh]
+  \input{plots/mody.pgf}
+  \caption{Rozkład amplitud dla czujników}
+  \label{fig:mody}
+\end{figure}
 
 \begin{figure}[!tbh]
   \centering
@@ -161,23 +189,8 @@ przyłączono przewody zakończone złączami BNC.
 \section{Przeprowadzenie redukcji drgań płyty}
 
 Podzespół połączono z pozostałymi elementami układu i w pierwszej kolejności
-zbadano mody płyty (z elementami piezoelektrycznymi). Wykorzystano w tym celu
-program napisany w środowisku programistycznym LabVIEW. Zaobserwowano wzrost
-amplitudy między innymi dla częstotliwości 250, 300, 570, 710 oraz
-\SI{920}{\hertz} odpowiadające wybranym przez nas częstotliwościom, których
-mody przedstawiono na rys. \ref{fig:mod1}--\ref{fig:mod5}. Pełny rozkład
-amplitud dla czujnika $S1$ oraz czujnika $S2$ w zależności od wzbudzonej
-częstotliwości z zakresu od 10 do \SI{2000}{\hertz}, dla stałej amplitudy
-pobudzenia przedstawiono na rys, \ref{fig:mody}.
-
-\begin{figure}[!tbh]
-  \input{plots/mody.pgf}
-  \caption{Rozkład amplitud dla czujników}
-  \label{fig:mody}
-\end{figure}
-
-Widać wyraźnie niższe amplitudy dla czujnika \textit{S2}. Pomimo tego zdecydowano się na
-kontynuację redukcji drgań płyty.
+zbadano mody płyty (z elementami piezoelektrycznymi). Rezultaty przedstawiono 
+w rozdziale \ref{ident}
 
 Program wykorzystany do badania modów płyty przedstawiono na wykresach
 \ref{fig:eigen_front} i \ref{fig:eigen_block}.
