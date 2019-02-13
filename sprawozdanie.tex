@@ -248,7 +248,7 @@ z sensorów są wyświetlane na wykresach.
 \section{Wyniki}
 
 Wyniki redukcji drgań dla kolejnych częstotliwości przedstawiono w tab.
-\ref{tab:red1}--\ref{tab:red5}.  Na czerwono w tablicach zaznaczono sytuacje w
+\ref{tab:red1}--\ref{tab:red5}. Na czerwono w tablicach zaznaczono sytuacje w
 których nie udało się uzyskań napięcia potrzebnego do redukcji z~powodu
 niewystarczającej mocy wzmacniacza.
 
@@ -417,11 +417,7 @@ niewystarczającej mocy wzmacniacza.
   \end{tabular}
 \end{table}
 
-\section{Wnioski}
-
-Przeprowadzono redukcję drgań płyty dla pięciu częstotliwości. Nie dla każdej
-częstotliwości możliwe było całkowite wytłumienie drgań względem wybranych
-czujników. 
+\section{Analiza wyników}
 
 Dla częstotliwości \SI{250}{\hertz} skutecznie całkowicie wytłumiono drgania
 względem czujnika $S2$ z wykorzystaniem dwóch aktuatorów. Dobry efekt też dała
@@ -455,10 +451,22 @@ czujnika $S1$ maksymalnie udało się stłumić amplitudę drgań o ok.
 \SI{55}{\decibelV}, dla $S2$ o ok.  \SI{53}{\decibelV}, a dla sumy
 \SI{25}{\decibelV}.
 
+\section{Wnioski}
+
+Przeprowadzono redukcję drgań płyty dla pięciu częstotliwości. Nie dla każdej
+częstotliwości możliwe było całkowite wytłumienie drgań względem wybranych
+czujników. Możliwość zadawania drgań dwoma aktuatorami pozwoliła w wielu
+przypadkach (dla \SI{250}{\hertz} względem $S2$, \SI{300}{\hertz} względem $S2$
+i $S2+S1$, dla \SI{570}{\hertz} względem $S1$ i $S2$, dla \SI{710}{\hertz}
+względem $S1$ i $S1+S2$, dla \SI{900}{\hertz} względem $S1$ i $S2$) na większą
+redukcję drgań niż z wykorzystaniem jednego aktuatora. Większą redukcję drgań
+można było uzyskać dla redukcji lokalnej niż globalnej.
+
 Niższa amplituda drgań dla czujnika $S2$ mogła wynikać z nieodpowiedniego
 przyklejenia czujnika do płyty (za mało kleju, nieodpowiednio rozprowadzony, za
 mała powierzchnia styku z płytą) lub z uszkodzenia elementu piezoelektrycznego
 (nie został on sprawdzony przed zamontowaniem). Nieznane są inne możliwe
 przyczyny, jednak nie wykluczone jest ich występowanie.
+
 
 \end{document}
