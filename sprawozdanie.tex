@@ -1,6 +1,6 @@
 \documentclass[polish,a4paper,11pt]{mwart}
 
-\usepackage[polish]{babel}
+\usepackage[polish, english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{polski}
 \usepackage[T1]{fontenc}
@@ -25,8 +25,18 @@
 \usepackage{tabularx}
 \usepackage{pgfplots}
 
+\usepackage[%			% bibliografia
+style=numeric,
+sorting=none,
+language=autobib,
+autolang=other,
+backend=biber,
+]{biblatex}
+
 \usepackage{csquotes}
 \DeclareQuoteAlias{croatian}{polish}
+
+\addbibresource{bibliografia.bib}
 
 \usepackage{placeins}	% poprawia float
 
@@ -86,8 +96,7 @@ gdzie $a$ to długość płyty (krawędź prostopadła do utwierdzenia), $h$ to 
 płyty, $E$ to moduł Younga materiału (przyjęto $E=\SI{6.9e10}{\pascal}$), $\rho$
 to gęstość materiału (przyjęto $\rho=\SI{2700}{\kilogram\per\cubic\metre}$) i
 $\nu$ to współczynnik Poissona materiału (przyjęto $\nu =\num{0.32}$). Parametr
-$\lambda$ pozyskano z literatury (A. W. Leissa. \textit{Vibration of plates}.
-Washingthon, D.C.: National Aeronautics and Space Administration, 1969, p.80)
+$\lambda$ pozyskano z literatury \cite{Leissa}
 dla przypadku płyty kwadratowej, jednostronnie utwierdzonej. Ponieważ posiadano
 jedynie wartości parametru dla 10 pierwszych modów, nie było możliwości
 porównania najwyższej redukowanej częstotliwości. 
@@ -505,5 +514,6 @@ mała powierzchnia styku z płytą) lub z uszkodzenia elementu piezoelektryczneg
 (nie został on sprawdzony przed zamontowaniem). Nieznane są inne możliwe
 przyczyny, jednak nie wykluczone jest ich występowanie.
 
+\printbibliography[title=Bibliografia]
 
 \end{document}
