@@ -68,7 +68,7 @@ dla każdej częstotliwości).
 \section{Identyfikacja częstotliwości własnych} \label{ident}
 
 W programie Salome-Meca zamodelowano płytę kwadratową, jednostronnie
-utwierdzoną, o wymiarach \SI{220 x 220}{\milli\meter}. Przeprowadzono analizę
+utwierdzoną, o wymiarach \SI{220 x 220 x 1}{\milli\meter}. Przeprowadzono analizę
 modalną i uzyskano postacie drgań własnych  oraz odpowiadające im
 częstotliwości w zakresie do \SI{1.5}{\kilo\hertz}.
 
@@ -78,10 +78,25 @@ LabVIEW\texttrademark, które podawało sygnał wymuszenia pod postacią sinusa
 przestrajanego na wzbudnik i rejestrowało sygnały pochodzące z czujników. Na
 wykresie \ref{fig:mody} przedstawiono uzyskany rozkład amplitud.
 
+Wartości teoretyczne częstotliwości obliczono ze wzoru:
+\begin{equation}
+  f = \frac{\lambda h}{2 \pi a^2}\sqrt{\frac{E}{12 \rho \left( 1-\nu^2 \right)}}
+\end{equation}
+gdzie $a$ to długość płyty (krawędź prostopadła do utwierdzenia), $h$ to grubość
+płyty, $E$ to moduł Younga materiału (przyjęto $E=\SI{6.9e10}{\pascal}$), $\rho$
+to gęstość materiału (przyjęto $\rho=\SI{2700}{\kilogram\per\cubic\metre}$) i
+$\nu$ to współczynnik Poissona materiału (przyjęto $\nu =\num{0.32}$). Parametr
+$\lambda$ pozyskano z literatury (A. W. Leissa. \textit{Vibration of plates}.
+Washingthon, D.C.: National Aeronautics and Space Administration, 1969, p.80)
+dla przypadku płyty kwadratowej, jednostronnie utwierdzonej. Ponieważ posiadano
+jedynie wartości parametru dla 10 pierwszych modów, nie było możliwości
+porównania najwyższej redukowanej częstotliwości. 
+
 Z uzyskanych danych pomiarowych oraz z danych pochodzących z symulacji MES
 dopasowano oraz wybrano częstotliwości dla których później przeprowadzano
-redukcję. Tabela  przedstawia wybrane częstotliwości, z kolei na rysunkach
-\ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3}, \ref{fig:mod4} oraz
+redukcję. Tabela \ref{tab:identyfikacja} przedstawia wybrane częstotliwości, z
+kolei na rysunkach \ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3},
+\ref{fig:mod4} oraz
 \ref{fig:mod5} przedstawiono postacie wybranych modów.
 
 \begin{table}[!tbh]
@@ -90,6 +105,7 @@ redukcję. Tabela  przedstawia wybrane częstotliwości, z kolei na rysunkach
   \begin{tabular}{|c|c|c|c|c|c|} \hline
     L.p. & 1 & 2 & 3 & 4 & 5 \\ \hline
     Symulacja MES $[\si{\hertz}]$ & 278 & 313 & 549 & 727 & 947 \\ \hline
+    Obliczenia teoretyczne $[\si{\hertz}]$ & 275 & 311 & 605 & 761 & - \\ \hline
     Pomiary płyty $[\si{\hertz}]$ & 250 & 300 & 570 & 710 & 920 \\ \hline
   \end{tabular}
   \label{tab:identyfikacja}
