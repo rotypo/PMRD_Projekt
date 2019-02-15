@@ -24,6 +24,7 @@
 \usepackage{microtype}
 \usepackage{tabularx}
 \usepackage{pgfplots}
+\usepackage[hidelinks]{hyperref}
 
 \usepackage[%			% bibliografia
 style=numeric,
@@ -75,7 +76,7 @@ redukcji dla 5 częstotliwości własnych drgań wywołanych wzbudnikiem, z
 wykorzystaniem 1 lub 2 aktuatorów względem 1 lub 2 czujników (9 konfiguracji
 dla każdej częstotliwości).
 
-\section{Identyfikacja częstotliwości własnych} \label{ident}
+\section{Identyfikacja częstotliwości własnych} \label{sec:ident}
 
 Przed przystąpieniem do redukcji drgań zmierzono częstotliwości drgań własnych
 zmontowanego układu. Posłużono się oprogramowaniem napisanym w środowisku
@@ -114,7 +115,7 @@ redukcję. Na rysunkach \ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3},
 \ref{fig:mod4} oraz
 \ref{fig:mod5} przedstawiono postacie wybranych modów.
 
-Ustalono miarę porównawczą częstotliwości, która jest różnicą między
+Ustalono miarę porównawczą częstotliwości, błąd względny, która jest różnicą między
 częstotliwościami w stosunku do częstotliwości odniesienia wyrażoną w
 procentach  i można określić ją wzorem:
 
@@ -142,6 +143,28 @@ ustalonej miary porównawczej przedstawiono w tabeli \ref{tab:identyfikacja}.
   \end{tabular}
   \label{tab:identyfikacja}
 \end{table}
+
+Według ustalonej miary porównawczej częstotliwości największe wahania występują
+dla częstotliwości odniesienia \SI{250}{\hertz}. W pozostałych przypadkach nie
+przekraczały one \SI{10}{\percent}. Wykorzystano dwie metody estymowania
+częstotliwości modu: symulacja MES oraz obliczenia teoretyczne. W oparciu
+o~wyniki dla ustalonej miary porównawczej można stwierdzić, że symulacja MES
+pozwoliła na dokładniejszą estymację dla wyższych modów (powyżej
+\SI{300}{\hertz}), natomiast obliczenia teoretyczne dały lepsze wyniki dla
+niższych modów. Po zaobserwowanych różnicach można jednak określić, że
+symulacja MES dała wyniki estymowania modów bardziej zbliżone do zmierzonych
+częstotliwości z pomiarów.  Różnice w częstotliwościach wynikały między innymi
+z:
+\begin{itemize}
+  \item dodatkowych elementów znajdujących się na płycie zwiększających jej masę i nie
+    uwzględnionych w estymacjach (elementy piezoelektryczne, płytki miedziane,
+    luty, przewody), 
+  \item błędu wykonania płyty (różnice w wymiarach rzeczywistych, a przyjętych),
+  \item nieidealnego utwierdzenia,
+  \item błędu pomiaru,
+  \item niedokładnego przymocowania elementów piezoelektrycznych wykorzystanych
+    do pomiarów.
+\end{itemize}
 
 \begin{figure}[!tbh]
   \centering
@@ -232,7 +255,7 @@ przyłączono przewody zakończone złączami BNC.
 
 Podzespół połączono z pozostałymi elementami układu i w pierwszej kolejności
 zbadano mody płyty (z elementami piezoelektrycznymi). Rezultaty przedstawiono 
-w rozdziale \ref{ident}
+w rozdziale \ref{sec:ident}
 
 Program wykorzystany do badania modów płyty przedstawiono na wykresach
 \ref{fig:eigen_front} i \ref{fig:eigen_block}.
@@ -525,28 +548,12 @@ względem $S1$ i $S1+S2$, dla \SI{900}{\hertz} względem $S1$ i $S2$) na większ
 redukcję drgań niż z wykorzystaniem jednego aktuatora. Większą redukcję drgań
 można było uzyskać dla redukcji lokalnej niż globalnej.
 
+Uzyskane wyniki częstotliwości modów drgań płyty według przyjętej miary
+porównawczej częstotliwości nie przekraczają \SI{10}{\percent} błędu względnego w odniesieniu
+do częstotliwości zmierzonej z pomiarów z wyjątkiem modu \SI{250}{\hertz}. Uznano te
+wyniki za wystarczające, biorąc pod uwagę czynniki wpływające na różnicę
+częstotliwości estymowanych od zmierzonych wymienione w punkcie \ref{sec:ident}.
 
-Według ustalonej miary porównawczej częstotliwości największe wahania występują
-dla częstotliwości odniesienia \SI{250}{\hertz}. W pozostałych przypadkach nie
-przekraczały one \SI{10}{\percent}. Wykorzystano dwie metody estymowania
-częstotliwości modu: symulacja MES oraz obliczenia teoretyczne. W oparciu
-o~wyniki dla ustalonej miary porównawczej można stwierdzić, że symulacja MES
-pozwoliła na dokładniejszą estymację dla wyższych modów (powyżej
-\SI{300}{\hertz}), natomiast obliczenia teoretyczne dały lepsze wyniki dla
-niższych modów. Po zaobserwowanych różnicach można jednak określić, że
-symulacja MES dała wyniki estymowania modów bardziej zbliżone do zmierzonych
-częstotliwości z pomiarów.  Różnice w częstotliwościach wynikały między innymi
-z:
-\begin{itemize}
-  \item dodatkowych elementów znajdujących się na płycie zwiększających jej masę i nie
-    uwzględnionych w estymacjach (elementy piezoelektryczne, płytki miedziane,
-    luty, przewody), 
-  \item błędu wykonania płyty (różnice w wymiarach rzeczywistych, a przyjętych),
-  \item nieidealnego utwierdzenia,
-  \item błędu pomiaru,
-  \item niedokładnego przymocowania elementów piezoelektrycznych wykorzystanych
-    do pomiarów.
-\end{itemize}%
 Niższa amplituda drgań dla czujnika $S2$ mogła wynikać z nieodpowiedniego
 przyklejenia czujnika do płyty (za mało kleju, nieodpowiednio rozprowadzony, za
 mała powierzchnia styku z płytą) lub z uszkodzenia elementu piezoelektrycznego
