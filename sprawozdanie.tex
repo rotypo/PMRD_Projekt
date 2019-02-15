@@ -77,16 +77,22 @@ dla każdej częstotliwości).
 
 \section{Identyfikacja częstotliwości własnych} \label{ident}
 
-W programie Salome-Meca zamodelowano płytę kwadratową, jednostronnie
-utwierdzoną, o wymiarach \SI{220 x 220 x 1}{\milli\meter}. Przeprowadzono analizę
-modalną i uzyskano postacie drgań własnych  oraz odpowiadające im
-częstotliwości w zakresie do \SI{1.5}{\kilo\hertz}.
-
 Przed przystąpieniem do redukcji drgań zmierzono częstotliwości drgań własnych
 zmontowanego układu. Posłużono się oprogramowaniem napisanym w środowisku
 LabVIEW\texttrademark, które podawało sygnał wymuszenia pod postacią sinusa
 przestrajanego na wzbudnik i rejestrowało sygnały pochodzące z czujników. Na
-wykresie \ref{fig:mody} przedstawiono uzyskany rozkład amplitud.
+rysunku \ref{fig:mody} przedstawiono uzyskany rozkład amplitud.
+
+\begin{figure}[!tbh]
+  \input{plots/mody.pgf}
+  \caption{Rozkład amplitud dla czujników}
+  \label{fig:mody}
+\end{figure}
+
+W programie Salome-Meca zamodelowano płytę kwadratową, jednostronnie
+utwierdzoną, o wymiarach \SI{220 x 220 x 1}{\milli\meter}. Przeprowadzono analizę
+modalną i uzyskano postacie drgań własnych  oraz odpowiadające im
+częstotliwości w zakresie do \SI{1.5}{\kilo\hertz}.
 
 Wartości teoretyczne częstotliwości obliczono ze wzoru:
 \begin{equation}
@@ -104,8 +110,7 @@ porównania najwyższej redukowanej częstotliwości.
 
 Z uzyskanych danych pomiarowych oraz z danych pochodzących z symulacji MES
 dopasowano oraz wybrano częstotliwości dla których później przeprowadzano
-redukcję. Tabela \ref{tab:identyfikacja} przedstawia wybrane częstotliwości, z
-kolei na rysunkach \ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3},
+redukcję. Na rysunkach \ref{fig:mod1}, \ref{fig:mod2}, \ref{fig:mod3},
 \ref{fig:mod4} oraz
 \ref{fig:mod5} przedstawiono postacie wybranych modów.
 
@@ -121,8 +126,8 @@ gdzie: $f_a$ -- badana częstotliwość, $f_b$ -- częstotliwość odniesienia.
 Częstotliwością odniesienia jest zmierzona w trakcie pomiarów częstotliwość
 modu odpowiadająca badanej częstotliwości (dla tego samego modu). 
 
-Zestawienie częstotliwości oraz wyliczone wartości ustalonej miary porównawczej
-przedstawiono w tabeli \ref{tab:identyfikacja}.
+Zestawienie wybranych częstotliwości modów płyty oraz wyliczone wartości
+ustalonej miary porównawczej przedstawiono w tabeli \ref{tab:identyfikacja}.
 
 \begin{table}[!tbh]
   \centering
@@ -137,12 +142,6 @@ przedstawiono w tabeli \ref{tab:identyfikacja}.
   \end{tabular}
   \label{tab:identyfikacja}
 \end{table}
-
-\begin{figure}[!tbh]
-  \input{plots/mody.pgf}
-  \caption{Rozkład amplitud dla czujników}
-  \label{fig:mody}
-\end{figure}
 
 \begin{figure}[!tbh]
   \centering
