@@ -80,7 +80,7 @@ dla każdej częstotliwości).
 Przed przystąpieniem do redukcji drgań zmierzono częstotliwości drgań własnych
 zmontowanego układu. Posłużono się oprogramowaniem napisanym w środowisku
 LabVIEW\texttrademark, które podawało sygnał wymuszenia pod postacią sinusa
-przestrajanego na wzbudnik i rejestrowało sygnały pochodzące z czujników. Na
+przestrajanego na wzbudnik i rejestrowało sygnały pochodzące z~czujników. Na
 rysunku \ref{fig:mody} przedstawiono uzyskany rozkład amplitud.
 
 \begin{figure}[!tbh]
@@ -253,7 +253,7 @@ Program wykorzystany do badania modów płyty przedstawiono na wykresach
 
 Program jest dwuwątkowy. W pierwszym wątku zadawane są co
 \SI{100}{\milli\second} częstotliwości co \SI{10}{\hertz} od \SI{10}{\hertz} do
-zadanej częstotliwości maksymalnej.  W drugim wątku zbierane są dane z
+zadanej częstotliwości maksymalnej.  W~drugim wątku zbierane są dane z
 sensorów. Po zakończeniu pracy wątków dane są wyświetlane na wykresie XY Graph,
 gdzie dziedziną są zadawane częstotliwości.  Dane z wykresu można eksportować
 do pliku (m. in. o rozszerzeniu .txt).
@@ -262,7 +262,7 @@ W kolejnym kroku z wykorzystaniem programu napisanego w środowisku
 programistycznym LabVIEW\texttrademark (rys. \ref{fig:red_front} i
 \ref{fig:red_block}) dla każdej z powyżej wymienionej częstotliwości przy
 stałym pobudzeniu \SI{20}{\volt} dążono do odnalezienia minimalnej amplitudy
-dla czujnika $S1$, czujnika $S2$ lub sumy z tych czujników zmieniając amplitudę
+dla czujnika $S1$, czujnika $S2$ lub sumy z~tych czujników zmieniając amplitudę
 oraz fazę
 aktuatora $A1$, aktuatora $A2$ lub obydwu aktuatorów (każdy względem każdego, 9
 konfiguracji dla każdej częstotliwości).
@@ -520,7 +520,7 @@ Przeprowadzono redukcję drgań płyty dla pięciu częstotliwości. Nie dla ka�
 częstotliwości możliwe było całkowite wytłumienie drgań względem wybranych
 czujników. Możliwość zadawania drgań dwoma aktuatorami pozwoliła w wielu
 przypadkach (dla \SI{250}{\hertz} względem $S2$, \SI{300}{\hertz} względem $S2$
-i $S2+S1$, dla \SI{570}{\hertz} względem $S1$ i $S2$, dla \SI{710}{\hertz}
+i~$S2+S1$, dla \SI{570}{\hertz} względem $S1$ i $S2$, dla \SI{710}{\hertz}
 względem $S1$ i $S1+S2$, dla \SI{900}{\hertz} względem $S1$ i $S2$) na większą
 redukcję drgań niż z wykorzystaniem jednego aktuatora. Większą redukcję drgań
 można było uzyskać dla redukcji lokalnej niż globalnej.
@@ -529,8 +529,8 @@ można było uzyskać dla redukcji lokalnej niż globalnej.
 Według ustalonej miary porównawczej częstotliwości największe wahania występują
 dla częstotliwości odniesienia \SI{250}{\hertz}. W pozostałych przypadkach nie
 przekraczały one \SI{10}{\percent}. Wykorzystano dwie metody estymowania
-częstotliwości modu: symulacja MES oraz obliczenia teoretyczne. W oparciu o
-wyniki dla ustalonej miary porównawczej można stwierdzić, że symulacja MES
+częstotliwości modu: symulacja MES oraz obliczenia teoretyczne. W oparciu
+o~wyniki dla ustalonej miary porównawczej można stwierdzić, że symulacja MES
 pozwoliła na dokładniejszą estymację dla wyższych modów (powyżej
 \SI{300}{\hertz}), natomiast obliczenia teoretyczne dały lepsze wyniki dla
 niższych modów. Po zaobserwowanych różnicach można jednak określić, że
@@ -542,7 +542,7 @@ z:
     uwzględnionych w estymacjach (elementy piezoelektryczne, płytki miedziane,
     luty, przewody), 
   \item błędu wykonania płyty (różnice w wymiarach rzeczywistych, a przyjętych),
-    nieidealnego utwierdzenia,
+  \item nieidealnego utwierdzenia,
   \item błędu pomiaru,
   \item niedokładnego przymocowania elementów piezoelektrycznych wykorzystanych
     do pomiarów.
